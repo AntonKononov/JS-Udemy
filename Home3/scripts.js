@@ -22,12 +22,14 @@ let appData = {
 
 function chooseExpenses() {
     for (let i = 0; i < 2; i++) {
-        let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", " "),
-            all_money2 = prompt("Во сколько обойдется?", " ");
+        let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", ""),
+            all_money2 = prompt("Во сколько обойдется?", "");
 
         if (typeof (all_money1) === 'string' && typeof (all_money1) != null && typeof (all_money2) != null && all_money1 != '' && all_money2 != '' && all_money1.length < 50) {
             console.log('done');
             appData.expenses[all_money1] = all_money2;
+        } else {
+            i--;
         }
     };
 }
@@ -35,11 +37,11 @@ function chooseExpenses() {
 chooseExpenses();
 
 function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 1; i < 4; i++) {
         let opt_exp = prompt("Введите необязательною статью расходов");
 
         if (typeof (opt_exp) === 'string' && typeof (opt_exp) != null && opt_exp != '') {
-            appData.optionalExpenses[i+1] = opt_exp;
+            appData.optionalExpenses[i] = opt_exp;
         }
 
     }
@@ -67,6 +69,7 @@ function detect_Level() {
     }
 }
 
+detect_Level();
 
 function checkSavings() {
     if (appData.savings == true) {

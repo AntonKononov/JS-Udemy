@@ -9,18 +9,7 @@ let appData = {
     income: []
 };
 
-for (let i = 0; i < 2; i++) {
-    let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", " "),
-        all_money2 = prompt("Во сколько обойдется?", " ");
-
-    if (typeof (all_money1) === 'string' && typeof (all_money1) != null && typeof (all_money2) != null && all_money1 != '' && all_money2 != '' && all_money1.length < 50) {
-        console.log('done');
-        appData.expenses[all_money1] = all_money2;
-    }
-};
-
-// let i = 0;
-// while (i < 2) {
+// for (let i = 0; i < 2; i++) {
 //     let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", " "),
 //         all_money2 = prompt("Во сколько обойдется?", " ");
 
@@ -28,8 +17,19 @@ for (let i = 0; i < 2; i++) {
 //         console.log('done');
 //         appData.expenses[all_money1] = all_money2;
 //     }
-//     i++;
 // };
+
+let i = 0;
+while (i < 2) {
+    let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        all_money2 = prompt("Во сколько обойдется?", "");
+
+    if (typeof (all_money1) === 'string' && typeof (all_money1) != null && typeof (all_money2) != null && all_money1 != '' && all_money2 != '' && all_money1.length < 50) {
+        console.log('done');
+        appData.expenses[all_money1] = all_money2;
+        i++;
+    }
+};
 
 // do {
 //     let all_money1 = prompt("Введите обязательную статью расходов в этом месяце", " "),
@@ -38,8 +38,8 @@ for (let i = 0; i < 2; i++) {
 //     if (typeof (all_money1) === 'string' && typeof (all_money1) != null && typeof (all_money2) != null && all_money1 != '' && all_money2 != '' && all_money1.length < 50) {
 //         console.log('done');
 //         appData.expenses[all_money1] = all_money2;
-//     }
 //     i++;
+//     }
 // } while (i < 2);
 
 appData.money_per_day = appData.money_for_month / 30;
